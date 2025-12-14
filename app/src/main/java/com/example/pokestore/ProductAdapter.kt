@@ -1,5 +1,6 @@
 package com.example.pokestore
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ class ProductAdapter(private val productList: List<Product>) :
         val txtName: TextView = view.findViewById(R.id.txtProductName)
         val txtPrice: TextView = view.findViewById(R.id.txtProductPrice)
         val btnAdd: Button = view.findViewById(R.id.btnAddCart)
+        val btnDetails: Button = view.findViewById(R.id.btnDetails)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -40,6 +42,12 @@ class ProductAdapter(private val productList: List<Product>) :
             snackbar.setTextColor(holder.itemView.context.getColor(R.color.white))
             
             snackbar.show()
+        }
+
+        holder.btnDetails.setOnClickListener {
+             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+             intent.putExtra("PRODUCT_EXTRA", product)
+             holder.itemView.context.startActivity(intent)
         }
     }
 
