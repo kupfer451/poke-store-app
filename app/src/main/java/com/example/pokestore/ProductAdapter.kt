@@ -34,10 +34,8 @@ class ProductAdapter(private val productList: List<Product>) :
         holder.imgProduct.setImageResource(product.imageResId)
 
         holder.btnAdd.setOnClickListener {
-            // Usar Snackbar para personalizar colores
             val snackbar = Snackbar.make(holder.itemView, "Producto Agregado: ${product.name}", Snackbar.LENGTH_SHORT)
             
-            // Personalizar colores
             snackbar.setBackgroundTint(holder.itemView.context.getColor(R.color.success_green))
             snackbar.setTextColor(holder.itemView.context.getColor(R.color.white))
             

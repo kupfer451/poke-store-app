@@ -1,6 +1,5 @@
 package com.example.pokestore
 
-// Objeto singleton para tener una única fuente de verdad de los datos
 object ProductData {
     val allProducts = listOf(
         Product(1, "Charizard Base", "$120.000", android.R.drawable.ic_menu_gallery),

@@ -25,7 +25,6 @@ class RegisterActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etRegisterPassword)
 
         btnRegister.setOnClickListener {
-            // Ocultar teclado
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.windowToken, 0)
 
@@ -35,15 +34,13 @@ class RegisterActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (name.isEmpty() || email.isEmpty() || rut.isEmpty() || password.isEmpty()) {
-                // Usar Snackbar en lugar de Toast para mostrar error personalizado
                 val snackbar = Snackbar.make(it, "Por favor, completa todos los campos", Snackbar.LENGTH_LONG)
                 snackbar.setBackgroundTint(getColor(R.color.error_red))
                 snackbar.setTextColor(getColor(R.color.white))
                 snackbar.show()
             } else {
-                // Lógica de registro exitoso
                 Toast.makeText(this, "¡Cuenta creada para $name!", Toast.LENGTH_SHORT).show()
-                finish() // Vuelve a la pantalla de inicio
+                finish()
             }
         }
     }

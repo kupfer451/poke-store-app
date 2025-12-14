@@ -20,20 +20,16 @@ class DetailActivity : AppCompatActivity() {
         val btnBack = findViewById<ImageButton>(R.id.btnBackDetail)
         btnBack.setOnClickListener { finish() }
 
-        // Recibir el producto inicial
         @Suppress("DEPRECATION")
         val initialProduct = intent.getSerializableExtra("PRODUCT_EXTRA") as? Product
 
-        // Obtener la lista completa de productos
         productList = ProductData.allProducts
 
-        // Encontrar el índice del producto seleccionado
         if (initialProduct != null) {
             currentProductIndex = productList.indexOfFirst { it.id == initialProduct.id }
-            if (currentProductIndex == -1) currentProductIndex = 0 // Fallback
+            if (currentProductIndex == -1) currentProductIndex = 0
         }
 
-        // Configurar botones de navegación
         val btnPrev = findViewById<ImageButton>(R.id.btnPrevProduct)
         val btnNext = findViewById<ImageButton>(R.id.btnNextProduct)
 
@@ -51,7 +47,7 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        updateUI() // Mostrar el primer producto
+        updateUI()
     }
 
     private fun updateUI() {
@@ -70,7 +66,6 @@ class DetailActivity : AppCompatActivity() {
         txtPrice.text = product.price
         txtDesc.text = product.description
 
-        // Habilitar/Deshabilitar flechas si estamos en los extremos
         btnPrev.isEnabled = currentProductIndex > 0
         btnPrev.alpha = if (btnPrev.isEnabled) 1.0f else 0.3f
         

@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Configurar navegación
         val btnProducts = findViewById<Button>(R.id.btnNavProducts)
         btnProducts.setOnClickListener {
             val intent = Intent(this, ProductsActivity::class.java)
@@ -44,15 +43,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // --- Configurar Productos Destacados (IDs 1-4) ---
         setupFeaturedProducts()
 
-        // --- Configurar Productos Nuevos (IDs 5-8) ---
         setupNewProducts()
     }
 
     private fun setupFeaturedProducts() {
-        // Filtrar desde la fuente única de datos
         val featuredProducts = ProductData.allProducts.filter { it.id in 1..4 }
 
         val rvFeatured = findViewById<RecyclerView>(R.id.rvFeaturedProducts)
@@ -61,7 +57,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNewProducts() {
-        // Filtrar desde la fuente única de datos
         val newProducts = ProductData.allProducts.filter { it.id in 5..8 }
 
         val rvNew = findViewById<RecyclerView>(R.id.rvNewProducts)

@@ -24,14 +24,12 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etLoginPassword)
 
         btnLogin.setOnClickListener {
-            // Ocultar teclado al presionar el botón
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.windowToken, 0)
 
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            // Variable para controlar si hay error y mostrar Snackbar
             var hasError = false
             var errorMessage = ""
 
@@ -54,13 +52,11 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (hasError) {
-                // Mostrar Snackbar rojo igual que en Registro
                 val snackbar = Snackbar.make(it, errorMessage, Snackbar.LENGTH_LONG)
                 snackbar.setBackgroundTint(getColor(R.color.error_red))
                 snackbar.setTextColor(getColor(R.color.white))
                 snackbar.show()
             } else {
-                // Si pasa todas las validaciones
                 Toast.makeText(this, "¡Bienvenido, $email!", Toast.LENGTH_SHORT).show()
                 finish()
             }

@@ -17,18 +17,14 @@ class CartActivity : AppCompatActivity() {
 
         val btnConfirm = findViewById<Button>(R.id.btnConfirmOrder)
         btnConfirm.setOnClickListener {
-            // Simulamos que el carrito está vacío para este ejemplo
-            val cartIsEmpty = true 
+            val cartIsEmpty = true
 
             if (cartIsEmpty) {
-                // Mostrar Snackbar de error en rojo
                 val snackbar = Snackbar.make(it, "Error: No hay productos seleccionados", Snackbar.LENGTH_LONG)
                 snackbar.setBackgroundTint(getColor(R.color.error_red))
                 snackbar.setTextColor(getColor(R.color.white))
                 snackbar.show()
             } else {
-                // Lógica de éxito (se implementará cuando haya gestión real de carrito)
-                // ...
             }
         }
     }

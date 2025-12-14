@@ -17,7 +17,6 @@ class ProductsActivity : AppCompatActivity() {
         val rvProducts = findViewById<RecyclerView>(R.id.rvAllProducts)
         rvProducts.layoutManager = LinearLayoutManager(this)
         
-        // Usar la fuente de datos centralizada
         rvProducts.adapter = ProductAdapter(ProductData.allProducts)
     }
 }
