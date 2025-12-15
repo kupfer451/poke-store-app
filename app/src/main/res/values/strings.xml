@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Poke Store App</string>
+    <string name="btn_add_cart">Añadir al Carrito</string>
+    <string name="btn_details">Detalles</string>
+</resources>
