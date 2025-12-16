@@ -1,6 +1,5 @@
 package com.example.pokestore
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,17 +7,17 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
+import coil.load // Importante: Coil
 
-class ProductAdapter(private val productList: List<Product>) :
+class ProductAdapter(private var productList: List<Product>) : // var para poder actualizar
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
+    // ... ViewHolder se mantiene igual ...
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgProduct: ImageView = view.findViewById(R.id.imgProduct)
         val txtName: TextView = view.findViewById(R.id.txtProductName)
         val txtPrice: TextView = view.findViewById(R.id.txtProductPrice)
-        val btnAdd: Button = view.findViewById(R.id.btnAddCart)
-        val btnDetails: Button = view.findViewById(R.id.btnDetails)
+        // ... botones ...
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -30,24 +29,23 @@ class ProductAdapter(private val productList: List<Product>) :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         holder.txtName.text = product.name
-        holder.txtPrice.text = product.price
-        holder.imgProduct.setImageResource(product.imageResId)
+        holder.txtPrice.text = "$ ${product.price.toInt()}" // Formato simple
 
-        holder.btnAdd.setOnClickListener {
-            val snackbar = Snackbar.make(holder.itemView, "Producto Agregado: ${product.name}", Snackbar.LENGTH_SHORT)
-            
-            snackbar.setBackgroundTint(holder.itemView.context.getColor(R.color.success_green))
-            snackbar.setTextColor(holder.itemView.context.getColor(R.color.white))
-            
-            snackbar.show()
+        // Usar Coil para cargar la imagen desde URL
+        holder.imgProduct.load(product.imageUrl) {
+            crossfade(true)
+            placeholder(android.R.drawable.ic_menu_gallery) // Imagen mientras carga
+            error(android.R.drawable.stat_notify_error) // Imagen si falla
         }
 
-        holder.btnDetails.setOnClickListener {
-             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-             intent.putExtra("PRODUCT_EXTRA", product)
-             holder.itemView.context.startActivity(intent)
-        }
+        // ... listeners de botones ...
     }
 
     override fun getItemCount() = productList.size
+
+    // Método para actualizar datos cuando llegan de la API
+    fun updateData(newProducts: List<Product>) {
+        productList = newProducts
+        notifyDataSetChanged()
+    }
 }
