@@ -2,8 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="poke_blue">#70d6ff</color>
-    <color name="home_background">#a8d8ea</color>
+    <color name="poke_blue">#607D8B</color>
+    <color name="home_background">#ECEFF1</color>
     <color name="dark_grey">#212121</color>
     <color name="price_color">#2c3e50</color>
     <color name="success_green">#27ae60</color>
