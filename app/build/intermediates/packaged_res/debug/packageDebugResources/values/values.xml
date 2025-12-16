@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="dark_grey">#212121</color>
+    <color name="error_red">#e74c3c</color>
+    <color name="home_background">#ECEFF1</color>
+    <color name="poke_blue">#607D8B</color>
+    <color name="price_color">#2c3e50</color>
+    <color name="success_green">#27ae60</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Poke Store App</string>
+    <string name="btn_add_cart">Añadir al Carrito</string>
+    <string name="btn_details">Detalles</string>
+    <style name="Base.Theme.PokeStoreApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/dark_grey</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        
+        <item name="android:statusBarColor">@color/dark_grey</item>
+        
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="Theme.PokeStoreApp" parent="Base.Theme.PokeStoreApp"/>
+</resources>

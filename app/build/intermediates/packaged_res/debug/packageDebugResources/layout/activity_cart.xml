@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_background"
+    tools:context=".CartActivity">
+
+    <!-- Header -->
+    <ImageButton
+        android:id="@+id/btnBackCart"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Volver"
+        android:src="@android:drawable/ic_menu_revert"
+        app:tint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleCart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Carrito de Compras"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnBackCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBackCart" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleCart">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Resumen (Placeholder) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Resumen de items"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• Charizard Base x1\n• Pikachu VMAX x1"
+                        android:textColor="#555555"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#CCCCCC"
+                        android:layout_marginVertical="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total: $155.000"
+                        android:textColor="@color/price_color"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Sección Detalles del Pedido -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detalles del Pedido"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre Completo"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:hint="Ej: Ash Ketchum"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dirección de Envío"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:hint="Ej: Pueblo Paleta 123"
+                android:inputType="textPostalAddress"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono de Contacto"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:hint="Ej: +56 9 1234 5678"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
+                android:textColorHint="#757575"
+                android:layout_marginBottom="32dp"/>
+
+            <Button
+                android:id="@+id/btnConfirmOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirmar Pedido"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/poke_blue"
+                android:textSize="16sp"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

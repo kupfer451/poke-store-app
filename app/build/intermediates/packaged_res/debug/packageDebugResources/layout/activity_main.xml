@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Contenido Principal con Scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/home_background"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Contenedor de contenido con padding -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Título de Bienvenida -->
+                <TextView
+                    android:id="@+id/welcomeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenido a PokeStore"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <!-- FILA 1: PRODUCTOS - NOSOTROS - CARRITO -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btnNavProducts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Productos"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/poke_blue"
+                        android:padding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:layout_marginEnd="2dp"/>
+
+                    <Button
+                        android:id="@+id/btnNavAbout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nosotros"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/poke_blue"
+                        android:padding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:layout_marginHorizontal="2dp"/>
+
+                    <Button
+                        android:id="@+id/btnNavCart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Carrito"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/poke_blue"
+                        android:padding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:layout_marginStart="2dp"/>
+                </LinearLayout>
+
+                <!-- FILA 2: INICIO SESIÓN - REGISTRARSE -->
+                <!-- weightSum=3. Espaciador de peso 0.5 a cada lado para centrar los 2 botones -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="3">
+
+                    <!-- Espaciador Izquierdo (0.5) -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.5"
+                        android:layout_marginEnd="2dp"/>
+
+                    <Button
+                        android:id="@+id/btnNavLogin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Inicio Sesión"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/poke_blue"
+                        android:padding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:layout_marginHorizontal="2dp"/>
+
+                    <Button
+                        android:id="@+id/btnNavRegister"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Registrarse"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/poke_blue"
+                        android:padding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:layout_marginHorizontal="2dp"/>
+
+                    <!-- Espaciador Derecho (0.5) -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.5"
+                        android:layout_marginStart="2dp"/>
+
+                </LinearLayout>
+
+                <!-- SECCIÓN 1: PRODUCTOS NUEVOS -->
+                <TextView
+                    android:id="@+id/subtitleFeatured"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Productos Nuevos"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFeaturedProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- SECCIÓN 2: PRODUCTOS DESTACADOS -->
+                <TextView
+                    android:id="@+id/subtitleNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Productos Destacados"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNewProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+            <!-- Footer: Ahora es parte del scroll, al final del LinearLayout principal -->
+            <LinearLayout
+                android:id="@+id/footer_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_grey"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PokeStore"
+                    android:textColor="@color/poke_blue"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Tu tienda de confianza para cartas y artículos Pokémon. Colecciona, intercambia y disfruta."
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
